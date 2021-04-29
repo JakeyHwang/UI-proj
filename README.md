@@ -1,1 +1,1 @@
-# UI-proj
+# tech-proj
