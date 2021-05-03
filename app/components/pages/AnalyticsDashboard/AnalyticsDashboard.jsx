@@ -69,8 +69,6 @@ const AnalyticsDashboard = () => {
     return (
         <div>
             <h1>Analytics Dashboard</h1>
-        </div>,
-        <div>
             <Table>
             <thead>
                 <tr>
