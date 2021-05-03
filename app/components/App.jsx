@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import AnalyticsDashboard from "./pages/AnalyticsDashboard/AnalyticsDashboard";
-import SingleWalkthroughAnalytics from "./pages/SingleWalkthroughAnalytics/SingleWalkthroughAnalytics";
+import AnalyticsDashboard from "./pages/AnalyticsDashboard/AnalyticsDashboard.jsx";
+import SingleWalkthroughAnalytics from "./pages/SingleWalkthroughAnalytics/SingleWalkthroughAnalytics.jsx";
 
 class App extends Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route path="/analytics" component={AnalyticsDashboard} />
-                    <Route path="/analytics/single" component={SingleWalkthroughAnalytics} />
+                    <Route path="/single" component={SingleWalkthroughAnalytics} />
                 </Switch>
             </div>
         );
