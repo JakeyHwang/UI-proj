@@ -67,9 +67,9 @@ const analyticsData = [
 const AnalyticsDashboard = () => {
 
     return (
-        // <div>
-        //     <h1>Analytics Dashboard</h1>
-        // </div>,
+        <div>
+            <h1>Analytics Dashboard</h1>
+        </div>,
         <div>
             <Table>
             <thead>
@@ -81,13 +81,13 @@ const AnalyticsDashboard = () => {
                 </tr>
             </thead>
             <tbody>
-            {analyticsData.map( data => <tr> {
-                data.map( ( {name, status, views, completion_rate} ) => 
-                <td>{name}</td>
-                <td>{status}</td> 
-                <td>{views}</td>
-                <td>{completion_rate}</td>)
-                } </tr>)}
+            {analyticsData.map( ( {name, status, views, completion_rate} ) => 
+            <tr>
+                <td key = {name}>{name}</td>
+                <td key = {name}>{status === true ? "Active":"Inactive"}</td> 
+                <td key = {name}>{views}</td>
+                <td key = {name}>{Math.round(completion_rate * 100)}%</td>
+            </tr>)}
             </tbody>
             </Table>
         </div>
