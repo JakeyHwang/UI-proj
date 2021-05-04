@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
 
 const analyticsData = [
     {
@@ -34,7 +34,7 @@ const analyticsData = [
         "completion_rate" : 0.7562
     },
     {
-        "name": "How to creat a post on LinkedIn",
+        "name": "How to create a post on LinkedIn",
         "status": false,
         "views": 67,
         "completion_rate" : 0.8722
@@ -59,13 +59,12 @@ const analyticsData = [
     },
     {
         "name": "How to add users to your organization",
-        "status": false,
+        "status": true,
         "views": 407,
         "completion_rate" : 0.6425
     }
 ]
 const AnalyticsDashboard = () => {
-
     return (
         <div>
             <h1>Analytics Dashboard</h1>
@@ -82,7 +81,7 @@ const AnalyticsDashboard = () => {
             {analyticsData.map( ( {name, status, views, completion_rate} ) => 
             <tr>
                 <td key = {name}>{name}</td>
-                <td key = {name}>{status === true ? "Active":"Inactive"}</td> 
+                <td key = {name}><font color = {status === true ? "green":"red"}>{status === true ? "Live":"Inactive"}</font></td> 
                 <td key = {name}>{views}</td>
                 <td key = {name}>{Math.round(completion_rate * 100)}%</td>
             </tr>)}

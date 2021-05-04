@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import Table from 'react-bootstrap/Table';
 
 const singleData = {
     "id": "12345667",
@@ -13,37 +14,44 @@ const singleData = {
     "errors_count": 67
 };
 
+
 const SingleWalkthroughAnalytics = () => {
 
     return (
         <div>
             <h1>Singular Walkthrough Analytics</h1>
             <Table>
-            <thead>
-                <tr>
-                <th>No. of times walkthrough is launched</th>
-                <th>No. of times walkthrough is launched (unique users)</th>
-                <th>Completion rate</th>
-                <th>Completion rate (unique users)</th>
-                <th>Dismissal rate</th>
-                <th>Incomplete walkthrough rate</th>
-                <th>No. of Errors</th>
-                </tr>
-            </thead>
             <tbody>
-            {Object.keys(subjects).map(({times_launched, unique_launch, completion_rate, unique_completion_rate, dismissal_rate, incomplete_rate, errors_count}) => 
             <tr>
-                <td>{times_launched}</td>
-                <td>{unique_launch}</td> 
-                <td>{completion_rate}</td>
-                <td>{unique_completion_rate}</td>
-                <td>{dismissal_rate}</td>
-                <td>{incomplete_rate}</td>
-                <td>{errors_count}</td>
-            </tr>)}
+                <td>No. of times walkthrough is launched</td>
+                <td>{singleData.times_launched}</td>
+            </tr>
+            <tr>
+                <td>No. of times walkthrough is launched (unique users)</td>
+                <td>{singleData.unique_launch}</td>
+            </tr>
+            <tr>
+                <td>Completion rate</td>
+                <td>{Math.round(singleData.completion_rate * 100)}%</td>
+            </tr>
+            <tr>
+                <td>Completion rate (unique users)</td>
+                <td>{Math.round(singleData.unique_completion_rate * 100)}%</td>
+            </tr>
+            <tr>
+                <td>Dismissal rate</td>
+                <td>{Math.round(singleData.dismissal_rate * 100)}%</td>
+            </tr>
+            <tr>
+                <td>Incomplete walkthrough rate</td>
+                <td>{Math.round(singleData.incomplete_rate * 100)}%</td>
+            </tr>
+            <tr>
+                <td>No. of Errors</td>
+                <td>{singleData.errors_count}</td>
+            </tr>
             </tbody>
             </Table>
-
         </div>
     );
 };
