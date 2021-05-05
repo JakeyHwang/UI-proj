@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 
-let h1 = {
+let styles = {
   background: "grey",
 };
 const SideBar = () => {
   return (
     <React.Fragment>
-      <div style={h1}>
+      <div style={styles}>
         <h1>UserTip</h1>
       </div>
     </React.Fragment>
