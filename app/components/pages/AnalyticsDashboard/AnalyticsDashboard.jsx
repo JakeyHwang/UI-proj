@@ -82,8 +82,9 @@ const tableheader = {
 
 const tableborder = {
   padding: "10px",
-  borderBottom: "1px solid #dddddd",
+  borderBottom: "2px solid #dddddd",
 };
+
 const AnalyticsDashboard = () => {
   return (
     <div style={tableposition}>

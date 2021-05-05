@@ -16,7 +16,7 @@ const singleData = {
 
 const tableborder = {
   padding: "10px",
-  borderTop: "1px solid #dddddd",
+  borderTop: "2px solid #dddddd",
 };
 const SingleWalkthroughAnalytics = () => {
   return (
