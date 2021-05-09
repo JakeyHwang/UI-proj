@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Table from "react-bootstrap/Table";
 
 const singleData = {
   id: "12345667",
