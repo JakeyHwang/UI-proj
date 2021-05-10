@@ -9,41 +9,45 @@ import Paper from "@material-ui/core/Paper";
 
 import RowBodyComponent from "../../component/RowBodyComponent.jsx";
 
-const tableposition = {
-  postition: "relative",
-  left: "100px",
-};
-
-const tableheader = {
-  color: "black",
-  background: "#ebebeb",
-};
-
-const tableborder = {
-  padding: "10px",
-  borderBottom: "2px solid #dddddd",
-};
-
 class AnalyticsDashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      tableborder: {
+        padding: "10px",
+        borderBottom: "2px solid #dddddd",
+      },
+      tableheader: {
+        color: "black",
+        background: "#ebebeb",
+      },
+      tableposition: {
+        postition: "relative",
+        left: "100px",
+      },
+    };
   }
   render() {
     return (
-      <div style={tableposition}>
+      <div style={this.state.tableposition}>
         <h1>Analytics Dashboard</h1>
         <TableContainer component={Paper}>
           <Table>
-            <TableHead style={tableheader}>
+            <TableHead style={this.state.tableheader}>
               <TableRow>
-                <TableCell style={tableborder}>Walkthrough Name</TableCell>
-                <TableCell style={tableborder}>Status</TableCell>
-                <TableCell style={tableborder}>No. of views</TableCell>
-                <TableCell style={tableborder}>Completion Rate</TableCell>
+                <TableCell style={this.state.tableborder}>
+                  Walkthrough Name
+                </TableCell>
+                <TableCell style={this.state.tableborder}>Status</TableCell>
+                <TableCell style={this.state.tableborder}>
+                  No. of views
+                </TableCell>
+                <TableCell style={this.state.tableborder}>
+                  Completion Rate
+                </TableCell>
               </TableRow>
             </TableHead>
-            <RowBodyComponent />
+            <RowBodyComponent styling={this.state} />
           </Table>
         </TableContainer>
       </div>

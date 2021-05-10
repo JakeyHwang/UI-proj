@@ -2,12 +2,12 @@ import { TableCell, TableRow } from "@material-ui/core";
 import React from "react";
 import { connect } from "react-redux";
 
-const tableborder = {
-  padding: "10px",
-  borderBottom: "2px solid #dddddd",
-};
-
 function RowComponent(props) {
+  const tableborder = {
+    padding: "10px",
+    borderBottom: "2px solid #dddddd",
+  };
+
   return props.data.map(({ name, status, views, completion_rate }) => (
     <TableRow>
       <TableCell key={name} style={tableborder}>
