@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState, Component } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
-import AnalyticsDashboard from "./pages/AnalyticsDashboard/AnalyticsDashboard.jsx";
-import SingleWalkthroughAnalytics from "./pages/SingleWalkthroughAnalytics/SingleWalkthroughAnalytics.jsx";
+import AnalyticsDashboard from "./components/pages/AnalyticsDashboard/AnalyticsDashboard.jsx";
+import SingleWalkthroughAnalytics from "./components/pages/SingleWalkthroughAnalytics/SingleWalkthroughAnalytics.jsx";
 
 const sidebarstyle = {
   background: "#3b3b3b",

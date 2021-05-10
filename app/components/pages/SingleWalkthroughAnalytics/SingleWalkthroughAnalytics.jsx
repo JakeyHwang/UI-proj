@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import Table from "react-bootstrap/Table";
+import Table from "@material-ui/core/Table";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableBody from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
 
 const singleData = {
   id: "12345667",
@@ -22,48 +26,50 @@ const SingleWalkthroughAnalytics = () => {
   return (
     <div>
       <h1>Singular Walkthrough Analytics</h1>
-      <table>
-        <tbody>
-          <tr>
-            <td style={tableborder}>No. of times walkthrough is launched</td>
-            <td style={tableborder}>{singleData.times_launched}</td>
-          </tr>
-          <tr>
-            <td style={tableborder}>
-              No. of times walkthrough is launched (unique users)
-            </td>
-            <td style={tableborder}>{singleData.unique_launch}</td>
-          </tr>
-          <tr>
-            <td style={tableborder}>Completion rate</td>
-            <td style={tableborder}>
-              {Math.round(singleData.completion_rate * 100)}%
-            </td>
-          </tr>
-          <tr>
-            <td style={tableborder}>Completion rate (unique users)</td>
-            <td style={tableborder}>
-              {Math.round(singleData.unique_completion_rate * 100)}%
-            </td>
-          </tr>
-          <tr>
-            <td style={tableborder}>Dismissal rate</td>
-            <td style={tableborder}>
-              {Math.round(singleData.dismissal_rate * 100)}%
-            </td>
-          </tr>
-          <tr>
-            <td style={tableborder}>Incomplete walkthrough rate</td>
-            <td style={tableborder}>
-              {Math.round(singleData.incomplete_rate * 100)}%
-            </td>
-          </tr>
-          <tr>
-            <td style={tableborder}>No. of Errors</td>
-            <td style={tableborder}>{singleData.errors_count}</td>
-          </tr>
-        </tbody>
-      </table>
+      <TableContainer>
+        <Table>
+          <TableBody>
+            <TableRow style={tableborder}>
+              <TableCell>No. of times walkthrough is launched</TableCell>
+              <TableCell>{singleData.times_launched}</TableCell>
+            </TableRow>
+            <TableRow style={tableborder}>
+              <TableCell>
+                No. of times walkthrough is launched (unique users)
+              </TableCell>
+              <TableCell>{singleData.unique_launch}</TableCell>
+            </TableRow>
+            <TableRow style={tableborder}>
+              <TableCell>Completion rate</TableCell>
+              <TableCell>
+                {Math.round(singleData.completion_rate * 100)}%
+              </TableCell>
+            </TableRow>
+            <TableRow style={tableborder}>
+              <TableCell>Completion rate (unique users)</TableCell>
+              <TableCell>
+                {Math.round(singleData.unique_completion_rate * 100)}%
+              </TableCell>
+            </TableRow>
+            <TableRow style={tableborder}>
+              <TableCell>Dismissal rate</TableCell>
+              <TableCell>
+                {Math.round(singleData.dismissal_rate * 100)}%
+              </TableCell>
+            </TableRow>
+            <TableRow style={tableborder}>
+              <TableCell>Incomplete walkthrough rate</TableCell>
+              <TableCell>
+                {Math.round(singleData.incomplete_rate * 100)}%
+              </TableCell>
+            </TableRow>
+            <TableRow style={tableborder}>
+              <TableCell>No. of Errors</TableCell>
+              <TableCell>{singleData.errors_count}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

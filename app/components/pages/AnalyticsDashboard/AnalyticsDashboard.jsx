@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState, Component } from "react";
 import { connect } from "react-redux";
-import RowsComponent from "../../RowsComponent.jsx";
 import Table from "@material-ui/core/Table";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+
+import RowBodyComponent from "../../component/RowBodyComponent.jsx";
 
 const tableposition = {
   postition: "relative",
@@ -42,7 +43,7 @@ class AnalyticsDashboard extends Component {
                 <TableCell style={tableborder}>Completion Rate</TableCell>
               </TableRow>
             </TableHead>
-            <RowsComponent />
+            <RowBodyComponent />
           </Table>
         </TableContainer>
       </div>
