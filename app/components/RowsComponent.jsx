@@ -75,30 +75,26 @@ const tableborder = {
 
 const RowComponent = () => {
   return (
-    <div>
-      <TableContainer component={Paper}>
-        <TableBody>
-          {analyticsData.map(({ name, status, views, completion_rate }) => (
-            <TableRow>
-              <TableCell key={name} style={tableborder}>
-                {name}
-              </TableCell>
-              <TableCell key={name} style={tableborder}>
-                <font color={status === true ? "green" : "red"}>
-                  {status === true ? "Live" : "Inactive"}
-                </font>
-              </TableCell>
-              <TableCell key={name} style={tableborder}>
-                {views}
-              </TableCell>
-              <TableCell key={name} style={tableborder}>
-                {Math.round(completion_rate * 100)}%
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </TableContainer>
-    </div>
+    <TableBody>
+      {analyticsData.map(({ name, status, views, completion_rate }) => (
+        <TableRow>
+          <TableCell key={name} style={tableborder}>
+            {name}
+          </TableCell>
+          <TableCell key={name} style={tableborder}>
+            <font color={status === true ? "green" : "red"}>
+              {status === true ? "Live" : "Inactive"}
+            </font>
+          </TableCell>
+          <TableCell key={name} style={tableborder}>
+            {views}
+          </TableCell>
+          <TableCell key={name} style={tableborder}>
+            {Math.round(completion_rate * 100)}%
+          </TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
   );
 };
 

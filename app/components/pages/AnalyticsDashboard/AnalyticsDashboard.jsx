@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState, Component } from "react";
 import { connect } from "react-redux";
 import RowsComponent from "../../RowsComponent.jsx";
 import Table from "@material-ui/core/Table";
@@ -23,26 +23,32 @@ const tableborder = {
   borderBottom: "2px solid #dddddd",
 };
 
-const AnalyticsDashboard = () => {
-  return (
-    <div style={tableposition}>
-      <h1>Analytics Dashboard</h1>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead style={tableheader}>
-            <TableRow>
-              <TableCell style={tableborder}>Walkthrough Name</TableCell>
-              <TableCell style={tableborder}>Status</TableCell>
-              <TableCell style={tableborder}>No. of views</TableCell>
-              <TableCell style={tableborder}>Completion Rate</TableCell>
-            </TableRow>
-          </TableHead>
-        </Table>
-      </TableContainer>
-      <RowsComponent />
-    </div>
-  );
-};
+class AnalyticsDashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <div style={tableposition}>
+        <h1>Analytics Dashboard</h1>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead style={tableheader}>
+              <TableRow>
+                <TableCell style={tableborder}>Walkthrough Name</TableCell>
+                <TableCell style={tableborder}>Status</TableCell>
+                <TableCell style={tableborder}>No. of views</TableCell>
+                <TableCell style={tableborder}>Completion Rate</TableCell>
+              </TableRow>
+            </TableHead>
+            <RowsComponent />
+          </Table>
+        </TableContainer>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state) => {};
 
