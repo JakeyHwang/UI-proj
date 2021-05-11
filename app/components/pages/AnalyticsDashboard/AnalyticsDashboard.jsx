@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
 import RowBodyComponent from "../../component/RowBodyComponent.jsx";
+import { RowDataProvider } from "../../component/RowDataContext.jsx";
 
 class AnalyticsDashboard extends Component {
   constructor(props) {
@@ -29,28 +30,30 @@ class AnalyticsDashboard extends Component {
   }
   render() {
     return (
-      <div style={this.state.tableposition}>
-        <h1>Analytics Dashboard</h1>
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead style={this.state.tableheader}>
-              <TableRow>
-                <TableCell style={this.state.tableborder}>
-                  Walkthrough Name
-                </TableCell>
-                <TableCell style={this.state.tableborder}>Status</TableCell>
-                <TableCell style={this.state.tableborder}>
-                  No. of views
-                </TableCell>
-                <TableCell style={this.state.tableborder}>
-                  Completion Rate
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <RowBodyComponent styling={this.state} />
-          </Table>
-        </TableContainer>
-      </div>
+      <RowDataProvider>
+        <div style={this.state.tableposition}>
+          <h1>Analytics Dashboard</h1>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead style={this.state.tableheader}>
+                <TableRow>
+                  <TableCell style={this.state.tableborder}>
+                    Walkthrough Name
+                  </TableCell>
+                  <TableCell style={this.state.tableborder}>Status</TableCell>
+                  <TableCell style={this.state.tableborder}>
+                    No. of views
+                  </TableCell>
+                  <TableCell style={this.state.tableborder}>
+                    Completion Rate
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <RowBodyComponent styling={this.state} />
+            </Table>
+          </TableContainer>
+        </div>
+      </RowDataProvider>
     );
   }
 }

@@ -25,6 +25,7 @@ const positioning = {
   width: "50%",
   height: "50%",
 };
+
 class App extends Component {
   constructor(props) {
     super(props);

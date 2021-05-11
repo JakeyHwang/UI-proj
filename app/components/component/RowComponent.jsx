@@ -1,14 +1,17 @@
 import { TableCell, TableRow } from "@material-ui/core";
-import React from "react";
+import React, { useContext } from "react";
 import { connect } from "react-redux";
+import { RowDataContext } from "./RowDataContext.jsx";
 
-function RowComponent(props) {
+const RowComponent = () => {
   const tableborder = {
     padding: "10px",
     borderBottom: "2px solid #dddddd",
   };
 
-  return props.data.map(({ name, status, views, completion_rate }) => (
+  const [rowData, setRowData] = useContext(RowDataContext);
+
+  return rowData.map(({ name, status, views, completion_rate }) => (
     <TableRow>
       <TableCell key={name} style={tableborder}>
         {name}
@@ -26,6 +29,6 @@ function RowComponent(props) {
       </TableCell>
     </TableRow>
   ));
-}
+};
 
 export default connect()(RowComponent);
