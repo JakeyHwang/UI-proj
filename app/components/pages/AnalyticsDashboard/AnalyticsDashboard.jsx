@@ -7,8 +7,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-import RowBodyComponent from "../../component/RowBodyComponent.jsx";
-import { RowDataProvider } from "../../component/RowDataContext.jsx";
+import RowBodyComponent from "../../AD_component/RowBodyComponent.jsx";
+import { RowDataProvider } from "../../AD_component/RowDataContext.jsx";
 
 class AnalyticsDashboard extends Component {
   constructor(props) {
