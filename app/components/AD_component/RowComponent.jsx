@@ -12,19 +12,15 @@ const RowComponent = () => {
   const [rowData, setRowData] = useContext(RowDataContext);
 
   return rowData.map(({ name, status, views, completion_rate }) => (
-    <TableRow>
-      <TableCell key={name} style={tableborder}>
-        {name}
-      </TableCell>
-      <TableCell key={name} style={tableborder}>
+    <TableRow key={name}>
+      <TableCell style={tableborder}>{name}</TableCell>
+      <TableCell style={tableborder}>
         <font color={status === true ? "green" : "red"}>
           {status === true ? "Live" : "Inactive"}
         </font>
       </TableCell>
-      <TableCell key={name} style={tableborder}>
-        {views}
-      </TableCell>
-      <TableCell key={name} style={tableborder}>
+      <TableCell style={tableborder}>{views}</TableCell>
+      <TableCell style={tableborder}>
         {Math.round(completion_rate * 100)}%
       </TableCell>
     </TableRow>

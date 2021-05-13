@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 
 import RowBodyComponent from "../../AD_component/RowBodyComponent.jsx";
 import { RowDataProvider } from "../../AD_component/RowDataContext.jsx";
+import AddNewRow from "../../AD_component/AddNewRow.jsx";
 
 class AnalyticsDashboard extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class AnalyticsDashboard extends Component {
       <RowDataProvider>
         <div style={this.state.tableposition}>
           <h1>Analytics Dashboard</h1>
+          <AddNewRow align="right" />
           <TableContainer component={Paper}>
             <Table>
               <TableHead style={this.state.tableheader}>
