@@ -1,7 +1,7 @@
 import { TableRow, TableCell, TableBody } from "@material-ui/core";
 import React, { useContext } from "react";
 import { connect } from "react-redux";
-import { SWContext } from "./SW_Context.jsx";
+import { SWContext } from "./SW_Data/SW_Context.jsx";
 
 const SWRowsComponent = () => {
   const tableborder = {

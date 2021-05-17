@@ -1,7 +1,8 @@
 import { TableCell, TableRow } from "@material-ui/core";
 import React, { useContext } from "react";
 import { connect } from "react-redux";
-import { RowDataContext } from "./RowDataContext.jsx";
+import { RowDataContext } from "./AD_data/RowDataContext.jsx";
+import { DeleteRow } from "./EditRow.jsx";
 
 const RowComponent = () => {
   const tableborder = {
@@ -22,6 +23,7 @@ const RowComponent = () => {
       <TableCell style={tableborder}>{views}</TableCell>
       <TableCell style={tableborder}>
         {Math.round(completion_rate * 100)}%
+        <DeleteRow />
       </TableCell>
     </TableRow>
   ));

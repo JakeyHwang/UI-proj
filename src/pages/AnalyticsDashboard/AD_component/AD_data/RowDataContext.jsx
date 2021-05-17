@@ -65,6 +65,12 @@ export const RowDataProvider = (props) => {
       completion_rate: 0.6425,
     },
   ]);
+  const [newData, setNewData] = useState({
+    name: "insert text",
+    status: false,
+    views: 0,
+    completion_rate: 0.0,
+  });
 
   return (
     <RowDataContext.Provider value={[rowData, setRowData]}>

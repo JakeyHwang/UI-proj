@@ -10,12 +10,12 @@ const path = require("path");
 module.exports = {
   mode: "development",
 
-  entry: __dirname + "/app/index.js",
+  entry: __dirname + "/src/index.js",
 
   output: {
     filename: "app.js",
     path: path.join(__dirname, "../", "build"),
-    publicPath: '/'
+    publicPath: "/",
   },
   devServer: {
     historyApiFallback: true,
