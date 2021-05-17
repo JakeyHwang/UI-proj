@@ -1,8 +1,8 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 
 export const RowDataContext = createContext();
 
-export const RowDataProvider = (props) => {
+export const DataProvider = (props) => {
   const [rowData, setRowData] = useState([
     {
       name: "Google Analytics Onboarding",
@@ -65,12 +65,6 @@ export const RowDataProvider = (props) => {
       completion_rate: 0.6425,
     },
   ]);
-  const [newData, setNewData] = useState({
-    name: "insert text",
-    status: false,
-    views: 0,
-    completion_rate: 0.0,
-  });
 
   return (
     <RowDataContext.Provider value={[rowData, setRowData]}>

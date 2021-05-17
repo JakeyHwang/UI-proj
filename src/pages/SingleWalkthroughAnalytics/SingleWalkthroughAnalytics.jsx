@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import Table from "@material-ui/core/Table";
 import TableContainer from "@material-ui/core/TableContainer";
 
-import SWRowsComponent from "./SW_component/SWRowsComponent.jsx";
-import { SWProvider } from "./SW_component/SW_Data/SW_Context.jsx";
+import SWRowsComponent from "../../Components/SWRowsComponent.jsx";
+import { SWProvider } from "../../Context/SW_Context.jsx";
 
 const SingleWalkthroughAnalytics = () => {
   return (

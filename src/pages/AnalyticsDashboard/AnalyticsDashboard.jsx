@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, Component } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Table from "@material-ui/core/Table";
 import TableCell from "@material-ui/core/TableCell";
@@ -7,21 +7,21 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-import RowBodyComponent from "./AD_component/RowBodyComponent.jsx";
-import { RowDataProvider } from "./AD_component/AD_data/RowDataContext.jsx";
-import { AddNewRow } from "./AD_component/EditRow.jsx";
+import RowBodyComponent from "../../Components/RowBodyComponent.jsx";
+import { DataProvider } from "../../Context/AD_Context.jsx";
+import SimpleModal from "../../Components/ANRModal.jsx";
 
 const AnalyticsDashboard = () => {
   const styling = {
-    tableborder: {
+    border: {
       padding: "10px",
       borderBottom: "2px solid #dddddd",
     },
-    tableheader: {
+    header: {
       color: "black",
       background: "#ebebeb",
     },
-    tableposition: {
+    position: {
       postition: "relative",
       left: "100px",
     },
@@ -32,29 +32,26 @@ const AnalyticsDashboard = () => {
   };
 
   return (
-    <RowDataProvider>
-      <div style={styling.tableposition}>
+    <DataProvider>
+      <div style={styling.position}>
         <h1>Analytics Dashboard</h1>
-        <AddNewRow />
+        <SimpleModal style={styling.buttonposition} />
         <TableContainer component={Paper}>
           <Table>
-            <TableHead style={styling.tableheader}>
+            <TableHead style={styling.header}>
               <TableRow>
-                <TableCell style={styling.tableborder}>
-                  Walkthrough Name
-                </TableCell>
-                <TableCell style={styling.tableborder}>Status</TableCell>
-                <TableCell style={styling.tableborder}>No. of views</TableCell>
-                <TableCell style={styling.tableborder}>
-                  Completion Rate
-                </TableCell>
+                <TableCell style={styling.border}>Walkthrough Name</TableCell>
+                <TableCell style={styling.border}>Status</TableCell>
+                <TableCell style={styling.border}>No. of views</TableCell>
+                <TableCell style={styling.border}>Completion Rate</TableCell>
+                <TableCell style={styling.border}></TableCell>
               </TableRow>
             </TableHead>
-            <RowBodyComponent styling={styling} />
+            <RowBodyComponent />
           </Table>
         </TableContainer>
       </div>
-    </RowDataProvider>
+    </DataProvider>
   );
 };
 
