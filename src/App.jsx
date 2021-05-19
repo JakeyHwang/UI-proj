@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import AnalyticsDashboard from "./pages/AnalyticsDashboard/AnalyticsDashboard.jsx";
 import SingleWalkthroughAnalytics from "./pages/SingleWalkthroughAnalytics/SingleWalkthroughAnalytics.jsx";
+import { AD_DataProvider } from "./Context/AD_Context.jsx";
 
 const sidebarstyle = {
   background: "#3b3b3b",
@@ -41,7 +42,9 @@ class App extends Component {
           </div>
           <div style={positioning}>
             <Switch>
-              <Route path="/analytics" component={AnalyticsDashboard} />
+              <AD_DataProvider>
+                <Route path="/analytics" component={AnalyticsDashboard} />
+              </AD_DataProvider>
               <Route path="/single" component={SingleWalkthroughAnalytics} />
             </Switch>
           </div>

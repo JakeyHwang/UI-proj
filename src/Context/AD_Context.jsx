@@ -1,8 +1,8 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext } from "react";
 
 export const RowDataContext = createContext();
 
-export const DataProvider = (props) => {
+export const AD_DataProvider = (props) => {
   const [rowData, setRowData] = useState([
     {
       name: "Google Analytics Onboarding",
@@ -66,9 +66,30 @@ export const DataProvider = (props) => {
     },
   ]);
 
+  const deleteRow = (name) => {
+    setRowData(rowData.filter((row) => row.name !== name));
+  };
+
+  const addRow = (name) => {
+    const newData = {
+      name: { name },
+      status: false,
+      view: 0,
+      completion_rate: 0.0,
+    };
+    setRowData(rowData.push(newData));
+  };
+  const providerValue = {
+    rowData,
+    setRowData,
+    deleteRow,
+    addRow,
+  };
   return (
-    <RowDataContext.Provider value={[rowData, setRowData]}>
+    <RowDataContext.Provider value={providerValue}>
       {props.children}
     </RowDataContext.Provider>
   );
 };
+
+// export const deleteRow = (rowKey) => {};

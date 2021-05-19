@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Input from "@material-ui/core/Input";
 import { Button } from "@material-ui/core";
-import { RowDataContext } from "../Context/AD_Context.jsx";
+import { AddRow } from "../Context/AddRow.jsx";
 
 const rand = () => {
   return Math.round(Math.random() * 20) - 10;
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SimpleModal = () => {
+const AddRowModal = ({ addRow }) => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
@@ -48,29 +48,18 @@ const SimpleModal = () => {
     setOpen(false);
   };
 
-  // const addRow = (newName) => {
-  //   const [rowData, setRowData] = useContext(RowDataContext);
-  //   const newData = {
-  //     name: { newName },
-  //     status: false,
-  //     views: 0,
-  //     completion_rate: 0.0,
-  //   };
-
-  //   return setRowData.push(newData);
-  // };
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Add New Row</h2>
       <h3 id="simple-modal-description">Walkthrough Name</h3>
-      <Input placeholder="New User Onboarding" name="newData" />
+      <Input placeholder="New User Onboarding" id="newData" />
       <Button variant="contained" onClick={handleClose}>
         Cancel
       </Button>
       <Button
         variant="contained"
         color="primary"
-        // onClick={addRow(document.getElementById("newData"))}
+        onClick={() => addRow(document.getElementById("newData"))}
       >
         Add
       </Button>
@@ -99,4 +88,4 @@ const SimpleModal = () => {
   );
 };
 
-export default connect()(SimpleModal);
+export default connect()(AddRowModal);

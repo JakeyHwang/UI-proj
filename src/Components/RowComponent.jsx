@@ -2,33 +2,31 @@ import { TableCell, TableRow } from "@material-ui/core";
 import React, { useContext } from "react";
 import { connect } from "react-redux";
 import { RowDataContext } from "../Context/AD_Context.jsx";
-import { DeleteRow } from "./EditRow.jsx";
+import { DeleteRow } from "./DeleteRow.jsx";
 
-const RowComponent = () => {
+const RowComponent = ({ data, deleteRow }) => {
   const tableborder = {
     padding: "10px",
     borderBottom: "2px solid #dddddd",
   };
 
-  const [rowData, setRowData] = useContext(RowDataContext);
-
-  return rowData.map(({ name, status, views, completion_rate }) => (
-    <TableRow key={name}>
-      <TableCell style={tableborder}>{name}</TableCell>
+  return (
+    <TableRow>
+      <TableCell style={tableborder}>{data.name}</TableCell>
       <TableCell style={tableborder}>
-        <font color={status === true ? "green" : "red"}>
-          {status === true ? "Live" : "Inactive"}
+        <font color={data.status === true ? "green" : "red"}>
+          {data.status === true ? "Live" : "Inactive"}
         </font>
       </TableCell>
-      <TableCell style={tableborder}>{views}</TableCell>
+      <TableCell style={tableborder}>{data.views}</TableCell>
       <TableCell style={tableborder}>
-        {Math.round(completion_rate * 100)}%
+        {Math.round(data.completion_rate * 100)}%
       </TableCell>
       <TableCell style={tableborder}>
-        <DeleteRow />
+        <DeleteRow deleteRow={deleteRow} name={data.name} />
       </TableCell>
     </TableRow>
-  ));
+  );
 };
 
 export default connect()(RowComponent);
