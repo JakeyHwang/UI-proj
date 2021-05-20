@@ -70,14 +70,8 @@ export const AD_DataProvider = (props) => {
     setRowData(rowData.filter((row) => row.name !== name));
   };
 
-  const addRow = (name) => {
-    const newData = {
-      name: { name },
-      status: false,
-      view: 0,
-      completion_rate: 0.0,
-    };
-    setRowData(rowData.push(newData));
+  const addRow = (newRow) => {
+    setRowData([...rowData, newRow]);
   };
   const providerValue = {
     rowData,

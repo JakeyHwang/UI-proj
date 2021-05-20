@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
 import RowBodyComponent from "../../Components/RowBodyComponent.jsx";
-import AddRowModal from "../../Components/ANRModal.jsx";
+import AddNewRow from "../../Components/AddNewRow.jsx";
 import { RowDataContext } from "../../Context/AD_Context.jsx";
 
 const AnalyticsDashboard = () => {
@@ -35,7 +35,7 @@ const AnalyticsDashboard = () => {
   return (
     <div style={styling.position}>
       <h1>Analytics Dashboard</h1>
-      <AddRowModal style={styling.buttonposition} addRow={addRow} />
+      <AddNewRow style={styling.buttonposition} addRow={addRow} />
       <TableContainer component={Paper}>
         <Table>
           <TableHead style={styling.header}>

@@ -6,7 +6,6 @@ import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Input from "@material-ui/core/Input";
 import { Button } from "@material-ui/core";
-import { AddRow } from "../Context/AddRow.jsx";
 
 const rand = () => {
   return Math.round(Math.random() * 20) - 10;
@@ -34,11 +33,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddRowModal = ({ addRow }) => {
+const AddNewRow = ({ addRow }) => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (!name) {
+      alert("Please add name");
+      return;
+    }
+
+    addRow({ name, status: false, views: 0, completion_rate: 0.0 });
+    setName("");
+  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -49,21 +61,24 @@ const AddRowModal = ({ addRow }) => {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Add New Row</h2>
-      <h3 id="simple-modal-description">Walkthrough Name</h3>
-      <Input placeholder="New User Onboarding" id="newData" />
-      <Button variant="contained" onClick={handleClose}>
-        Cancel
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => addRow(document.getElementById("newData"))}
-      >
-        Add
-      </Button>
-    </div>
+    <form onSubmit={onSubmit}>
+      <div style={modalStyle} className={classes.paper}>
+        <h2 id="simple-modal-title">Add New Row</h2>
+        <h3 id="simple-modal-description">Walkthrough Name</h3>
+        <Input
+          type="text"
+          placeholder="New User Onboarding"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Button variant="contained" onClick={handleClose}>
+          Cancel
+        </Button>
+        <Button variant="contained" color="primary" type="submit">
+          Add
+        </Button>
+      </div>
+    </form>
   );
 
   return (
@@ -88,4 +103,4 @@ const AddRowModal = ({ addRow }) => {
   );
 };
 
-export default connect()(AddRowModal);
+export default connect()(AddNewRow);
